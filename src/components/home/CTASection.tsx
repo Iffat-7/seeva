@@ -21,7 +21,7 @@ export function CTASection() {
           <p className="text-primary text-sm uppercase tracking-widest">Reserve Your Table</p>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground">
             Ready to Experience<br />
-            <span className="text-gradient-gold">Seeva?</span>
+            <span className="text-gradient-gold">Sevva?</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
             Whether it's a family gathering, business dinner, or a romantic evening, 

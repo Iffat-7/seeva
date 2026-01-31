@@ -15,7 +15,7 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Seeva custom variants
+        // Sevva custom variants
         gold: "bg-primary text-primary-foreground hover:bg-gold-dark shadow-[0_4px_20px_-4px_hsl(38,65%,50%,0.25)] hover:shadow-[0_6px_25px_-4px_hsl(38,65%,50%,0.35)]",
         goldOutline: "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground",
         hero: "bg-primary text-primary-foreground font-serif text-base tracking-wide hover:bg-gold-dark shadow-[0_4px_30px_-4px_hsl(38,65%,50%,0.4)] hover:shadow-[0_8px_40px_-4px_hsl(38,65%,50%,0.5)] hover:-translate-y-0.5",

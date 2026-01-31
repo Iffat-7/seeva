@@ -31,7 +31,7 @@ export function HighlightsSection() {
         <div className="text-center mb-16">
           <p className="text-primary text-sm uppercase tracking-widest mb-3">Why Choose Us</p>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
-            The Seeva Experience
+            The Sevva Experience
           </h2>
           <div className="divider-gold" />
         </div>

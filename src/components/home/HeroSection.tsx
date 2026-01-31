@@ -24,7 +24,7 @@ export function HeroSection() {
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-medium text-foreground leading-tight">
             Reserve the Moment.
             <br />
-            <span className="text-gradient-gold">Experience Seeva.</span>
+            <span className="text-gradient-gold">Experience Sevva.</span>
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed">
