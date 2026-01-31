@@ -12,6 +12,7 @@ import { format } from "date-fns";
 import { CalendarIcon, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 type ActionType = "create" | "update" | "delete";
 
@@ -36,7 +37,7 @@ const timeSlots = [
 
 const guestOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"];
 
-const WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/25980709/fc033904ad2f4cd597d89c4103eb5b86/";
+// Webhook is now handled server-side via edge function for production reliability
 
 const Reservations = () => {
   const { toast } = useToast();
@@ -87,15 +88,18 @@ const Reservations = () => {
     };
 
     try {
-      await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        mode: "no-cors",
-        body: JSON.stringify(payload),
+      console.log("Submitting reservation via edge function:", payload);
+      
+      const { data, error } = await supabase.functions.invoke('reservation-webhook', {
+        body: payload,
       });
 
+      if (error) {
+        throw new Error(error.message || "Failed to submit reservation");
+      }
+
+      console.log("Edge function response:", data);
+      
       setIsSuccess(true);
       toast({
         title: "Request Received",
