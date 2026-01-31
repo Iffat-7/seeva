@@ -2,6 +2,8 @@ import { ReactNode } from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { StickyBookButton } from "@/components/StickyBookButton";
+import ChatWidget from "@/components/chat/ChatWidget";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 interface LayoutProps {
   children: ReactNode;
@@ -24,6 +26,8 @@ export function Layout({ children }: LayoutProps) {
       <Footer />
       
       <StickyBookButton />
+      <WhatsAppButton />
+      <ChatWidget />
     </>
   );
 }
