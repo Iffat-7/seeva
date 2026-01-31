@@ -23,9 +23,9 @@ export function Header() {
           <Link 
             to="/" 
             className="font-serif text-2xl md:text-3xl tracking-wider text-gradient-gold"
-            aria-label="Seeva Restaurant - Home"
+            aria-label="Sevva Restaurant - Home"
           >
-            SEEVA
+            SEVVA
           </Link>
 
           {/* Desktop Navigation */}

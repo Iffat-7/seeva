@@ -9,7 +9,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="font-serif text-3xl tracking-wider text-gradient-gold">
-              SEEVA
+              SEVVA
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Experience the art of fine Pakistani cuisine in an atmosphere of warmth and elegance.
@@ -98,7 +98,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-border/50 text-center">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Seeva Restaurant. All rights reserved.
+            © {new Date().getFullYear()} Sevva Restaurant. All rights reserved.
           </p>
         </div>
       </div>

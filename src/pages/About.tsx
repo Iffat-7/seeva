@@ -10,7 +10,7 @@ const About = () => {
           <div className="text-center mb-16">
             <p className="text-primary text-sm uppercase tracking-widest mb-3">Our Story</p>
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
-              About Seeva
+              About Sevva
             </h1>
             <div className="divider-gold" />
           </div>
@@ -22,13 +22,13 @@ const About = () => {
                 Where Tradition Meets <span className="text-gradient-gold">Elegance</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Nestled in the heart of Lahore near Lake City, Seeva Restaurant brings together 
+                Nestled in the heart of Lahore near Lake City, Sevva Restaurant brings together 
                 the rich culinary heritage of Pakistan with an atmosphere of refined elegance. 
                 Our journey began with a simple vision: to create a space where families and 
                 friends could gather over exceptional food, creating memories that last a lifetime.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Every dish at Seeva tells a story — from our aromatic karahis cooked to perfection 
+                Every dish at Sevva tells a story — from our aromatic karahis cooked to perfection 
                 in traditional style, to our signature BBQ platters that showcase the mastery of 
                 charcoal grilling. We believe in using only the finest ingredients, including 
                 authentic desi ghee and premium meats, to honor the recipes passed down through 
@@ -36,7 +36,7 @@ const About = () => {
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Whether you're celebrating a special occasion, hosting a business dinner, or simply 
-                enjoying a family meal, Seeva provides the perfect setting. Our warm hospitality 
+                enjoying a family meal, Sevva provides the perfect setting. Our warm hospitality 
                 and attention to detail ensure that every visit is an experience to remember.
               </p>
             </div>
@@ -92,7 +92,7 @@ const About = () => {
               The Perfect Setting
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Seeva offers a family-friendly environment that's equally suited for intimate 
+              Sevva offers a family-friendly environment that's equally suited for intimate 
               dinners, grand celebrations, and corporate gatherings. Our elegant interiors, 
               comfortable seating options — including private areas — and attentive service 
               create the ideal backdrop for any occasion.

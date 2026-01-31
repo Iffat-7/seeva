@@ -40,7 +40,7 @@ const Contact = () => {
                         Lahore, Punjab 54790, Pakistan
                       </p>
                       <a
-                        href="https://maps.google.com/?q=Seeva+Restaurant+Lahore"
+                        href="https://maps.google.com/?q=Sevva+Restaurant+Lahore"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-primary text-sm mt-2 hover:underline"
@@ -134,7 +134,7 @@ const Contact = () => {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Seeva Restaurant Location"
+                  title="Sevva Restaurant Location"
                   className="grayscale contrast-125"
                 />
               </div>
