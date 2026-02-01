@@ -11,6 +11,7 @@ export function HeroSection() {
           src={heroImage}
           alt="Elegant restaurant interior with warm candlelight ambiance"
           className="w-full h-full object-cover"
+          fetchPriority="high"
         />
         <div className="hero-overlay absolute inset-0" />
       </div>
