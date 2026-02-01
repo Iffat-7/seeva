@@ -7,6 +7,10 @@
     <!-- Preconnect to external origins to reduce network dependency chain -->
     <link rel="preconnect" href="https://cdn.gpteng.co" crossorigin />
     <link rel="dns-prefetch" href="https://cdn.gpteng.co" />
+    
+    <!-- Preload LCP image for faster First Contentful Paint -->
+    <link rel="preload" as="image" href="/src/assets/hero-restaurant.jpg" fetchpriority="high" />
+    
     <title>Sevva Restaurant | Fine Pakistani Cuisine in Lahore</title>
     <meta name="description" content="Experience authentic Pakistani cuisine at Sevva Restaurant, Lahore. Book your table for an unforgettable dining experience." />
     <meta name="author" content="Sevva Restaurant" />
