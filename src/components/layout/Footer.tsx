@@ -81,11 +81,11 @@ export function Footer() {
                 <span>+92 315 177 3177</span>
               </a>
               <a 
-                href="mailto:info@sevva.pk" 
+                href="mailto:buttcaterers786@gmail.com" 
                 className="flex items-start gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail size={16} className="text-primary mt-0.5 shrink-0" />
-                <span>info@sevva.pk</span>
+                <span>buttcaterers786@gmail.com</span>
               </a>
               <div className="flex items-start gap-3 text-sm text-muted-foreground">
                 <MapPin size={16} className="text-primary mt-0.5 shrink-0" />
@@ -96,9 +96,12 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-border/50 text-center">
+        <div className="mt-12 pt-8 border-t border-border/50 text-center space-y-3">
           <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} Sevva Restaurant. All rights reserved.
+          </p>
+          <p className="text-muted-foreground/60 text-xs tracking-widest uppercase">
+            Powered by <span className="text-primary font-medium">Effat</span>
           </p>
         </div>
       </div>
