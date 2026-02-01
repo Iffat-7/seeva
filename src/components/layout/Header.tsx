@@ -3,17 +3,20 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/menu", label: "Menu" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", labelKey: "nav.home" },
+  { href: "/menu", labelKey: "nav.menu" },
+  { href: "/about", labelKey: "nav.about" },
+  { href: "/contact", labelKey: "nav.contact" },
 ];
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { t, language } = useLanguage();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
@@ -29,7 +32,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -40,12 +43,14 @@ export function Header() {
                     ? "text-primary"
                     : "text-muted-foreground hover:text-foreground"
                 )}
+                dir={language === "ur" ? "rtl" : "ltr"}
               >
-                {link.label}
+                {t(link.labelKey)}
               </Link>
             ))}
+            <LanguageToggle />
             <Button variant="gold" size="default" asChild>
-              <Link to="/reservations">Book a Table</Link>
+              <Link to="/reservations">{t("nav.book")}</Link>
             </Button>
           </div>
 
@@ -61,12 +66,11 @@ export function Header() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         <div
           id="mobile-menu"
           className={cn(
             "md:hidden overflow-hidden transition-all duration-300",
-            isMenuOpen ? "max-h-80 pb-6" : "max-h-0"
+            isMenuOpen ? "max-h-96 pb-6" : "max-h-0"
           )}
         >
           <div className="flex flex-col gap-4 pt-4">
@@ -81,13 +85,17 @@ export function Header() {
                     : "text-muted-foreground"
                 )}
                 onClick={() => setIsMenuOpen(false)}
+                dir={language === "ur" ? "rtl" : "ltr"}
               >
-                {link.label}
+                {t(link.labelKey)}
               </Link>
             ))}
+            <div className="py-2">
+              <LanguageToggle />
+            </div>
             <Button variant="gold" className="mt-2" asChild>
               <Link to="/reservations" onClick={() => setIsMenuOpen(false)}>
-                Book a Table
+                {t("nav.book")}
               </Link>
             </Button>
           </div>

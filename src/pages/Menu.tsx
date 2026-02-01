@@ -151,13 +151,19 @@ const Menu = () => {
                   {category.items.map((item, itemIndex) => (
                     <div
                       key={itemIndex}
-                      className="flex justify-between items-baseline gap-4"
+                      className="group flex justify-between items-baseline gap-4 p-2 -mx-2 rounded-lg transition-all duration-300 hover:bg-muted/30 cursor-default"
                     >
-                      <div className="flex-1">
-                        <span className="text-foreground">{item.name}</span>
-                        <span className="block w-full border-b border-dotted border-border/50 mt-1" />
+                      <div className="flex-1 relative">
+                        <span className="text-foreground group-hover:text-primary transition-colors duration-300">
+                          {item.name}
+                        </span>
+                        {/* Sizzle effect on hover */}
+                        <span className="absolute -right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <span className="inline-block w-1.5 h-1.5 bg-primary/60 rounded-full animate-ping" />
+                        </span>
+                        <span className="block w-full border-b border-dotted border-border/50 mt-1 group-hover:border-primary/30 transition-colors" />
                       </div>
-                      <span className="text-primary font-medium whitespace-nowrap">
+                      <span className="text-primary font-medium whitespace-nowrap group-hover:scale-105 transition-transform duration-300">
                         {item.price}
                       </span>
                     </div>
