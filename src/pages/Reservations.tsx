@@ -9,12 +9,10 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { format } from "date-fns";
-import { CalendarIcon, Loader2, CheckCircle, AlertCircle, Mic } from "lucide-react";
+import { CalendarIcon, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { VoiceBooking } from "@/components/VoiceBooking";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 type ActionType = "create" | "update" | "delete";
 
@@ -39,10 +37,7 @@ const timeSlots = [
 
 const guestOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"];
 
-// Webhook is now handled server-side via edge function for production reliability
-
 const Reservations = () => {
-  const { t } = useLanguage();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -147,29 +142,8 @@ const Reservations = () => {
             </h1>
             <div className="divider-gold mb-6" />
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Complete the form below or use voice booking for a hands-free experience.
+              Complete the form below to reserve your table at Sevva.
             </p>
-          </div>
-
-          {/* Voice Booking Section */}
-          <div className="max-w-md mx-auto mb-12 p-8 rounded-xl bg-gradient-to-b from-primary/5 to-transparent border border-primary/20">
-            <div className="text-center mb-6">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm mb-4">
-                <Mic size={14} />
-                <span>New! Voice Booking</span>
-              </div>
-              <h2 className="font-serif text-xl text-foreground mb-2">{t("voice.title")}</h2>
-              <p className="text-muted-foreground text-sm">{t("voice.subtitle")}</p>
-            </div>
-            <VoiceBooking />
-          </div>
-
-          <div className="max-w-2xl mx-auto mb-8">
-            <div className="flex items-center gap-4">
-              <div className="flex-1 h-px bg-border" />
-              <span className="text-muted-foreground text-sm uppercase tracking-widest">Or fill the form</span>
-              <div className="flex-1 h-px bg-border" />
-            </div>
           </div>
 
           {/* Success State */}
