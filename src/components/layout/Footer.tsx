@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock, Instagram, Facebook } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-charcoal-deep border-t border-border">
       <div className="container mx-auto px-4 md:px-6 py-16">
@@ -12,7 +15,7 @@ export function Footer() {
               SEVVA
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Experience the art of fine Pakistani cuisine in an atmosphere of warmth and elegance.
+              {t("footer.tagline")}
             </p>
             <div className="flex gap-4 pt-2">
               <a 
@@ -38,31 +41,31 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="font-serif text-lg text-foreground">Quick Links</h3>
+            <h3 className="font-serif text-lg text-foreground">{t("footer.quickLinks")}</h3>
             <nav className="flex flex-col gap-3" aria-label="Footer navigation">
               <Link to="/menu" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                Our Menu
+                {t("nav.menu")}
               </Link>
               <Link to="/reservations" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                Reservations
+                {t("nav.book")}
               </Link>
               <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                About Us
+                {t("nav.about")}
               </Link>
               <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                Contact
+                {t("nav.contact")}
               </Link>
             </nav>
           </div>
 
           {/* Hours */}
           <div className="space-y-4">
-            <h3 className="font-serif text-lg text-foreground">Opening Hours</h3>
+            <h3 className="font-serif text-lg text-foreground">{t("footer.hours")}</h3>
             <div className="space-y-2">
               <div className="flex items-start gap-3 text-sm">
                 <Clock size={16} className="text-primary mt-0.5 shrink-0" />
                 <div className="text-muted-foreground">
-                  <p>Monday – Sunday</p>
+                  <p>{t("footer.daily")}</p>
                   <p className="text-foreground">12:00 PM – 12:00 AM</p>
                 </div>
               </div>
@@ -71,7 +74,7 @@ export function Footer() {
 
           {/* Contact */}
           <div className="space-y-4">
-            <h3 className="font-serif text-lg text-foreground">Contact Us</h3>
+            <h3 className="font-serif text-lg text-foreground">{t("footer.contact")}</h3>
             <div className="space-y-3">
               <a 
                 href="tel:+923151773177" 
@@ -89,7 +92,7 @@ export function Footer() {
               </a>
               <div className="flex items-start gap-3 text-sm text-muted-foreground">
                 <MapPin size={16} className="text-primary mt-0.5 shrink-0" />
-                <span>Adda Plot Roundabout, Raiwind Road, near Lake City, Lahore</span>
+                <span>{t("footer.address")}</span>
               </div>
             </div>
           </div>
@@ -98,7 +101,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-border/50 text-center space-y-3">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Sevva Restaurant. All rights reserved.
+            © {new Date().getFullYear()} Sevva Restaurant. {t("footer.rights")}
           </p>
           <p className="text-muted-foreground/60 text-xs tracking-widest uppercase">
             Powered by <span className="text-primary font-medium">Effat</span>
