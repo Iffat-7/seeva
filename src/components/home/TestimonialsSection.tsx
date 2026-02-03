@@ -1,32 +1,35 @@
 import { Star, Quote } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const testimonials = [
   {
-    name: "Ahmed Khan",
+    nameKey: "testimonials.1.name",
+    textKey: "testimonials.1.text",
     rating: 5,
-    text: "The best karahi in Lahore! The ambience is perfect for family dinners. Highly recommend the Nawabi Butter Handi.",
   },
   {
-    name: "Fatima Malik",
+    nameKey: "testimonials.2.name",
+    textKey: "testimonials.2.text",
     rating: 5,
-    text: "Absolutely stunning restaurant. The Sunday brunch buffet is incredible — over 50 items and everything was delicious.",
   },
   {
-    name: "Hassan Ali",
+    nameKey: "testimonials.3.name",
+    textKey: "testimonials.3.text",
     rating: 5,
-    text: "Celebrated my anniversary here. The staff was attentive, the food was exceptional, and the private seating was wonderful.",
   },
 ];
 
 export function TestimonialsSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="text-primary text-sm uppercase tracking-widest mb-3">Guest Reviews</p>
+          <p className="text-primary text-sm uppercase tracking-widest mb-3">{t("testimonials.subtitle")}</p>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
-            What Our Guests Say
+            {t("testimonials.title")}
           </h2>
           <div className="divider-gold" />
         </div>
@@ -48,10 +51,10 @@ export function TestimonialsSection() {
               </div>
 
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                "{testimonial.text}"
+                "{t(testimonial.textKey)}"
               </p>
 
-              <p className="font-serif text-foreground">{testimonial.name}</p>
+              <p className="font-serif text-foreground">{t(testimonial.nameKey)}</p>
             </div>
           ))}
         </div>
@@ -64,7 +67,7 @@ export function TestimonialsSection() {
                 <Star key={i} size={18} className="fill-primary text-primary" />
               ))}
             </div>
-            <span className="text-muted-foreground text-sm">4.8 out of 5 based on guest reviews</span>
+            <span className="text-muted-foreground text-sm">{t("testimonials.rating")}</span>
           </div>
         </div>
       </div>

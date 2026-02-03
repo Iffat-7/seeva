@@ -29,27 +29,56 @@ export const translations: Translations = {
   // Gallery
   "gallery.title": { en: "Culinary Artistry", ur: "پکوانوں کا فن" },
   "gallery.subtitle": { en: "A Visual Journey", ur: "ایک بصری سفر" },
+  "gallery.biryani": { en: "Aromatic Biryani", ur: "خوشبودار بریانی" },
+  "gallery.seekhKabab": { en: "Seekh Kabab", ur: "سیخ کباب" },
+  "gallery.naan": { en: "Fresh Naan Bread", ur: "تازہ نان" },
+  "gallery.handi": { en: "Creamy Handi", ur: "کریمی ہانڈی" },
+  "gallery.gulabJamun": { en: "Gulab Jamun", ur: "گلاب جامن" },
+  "gallery.tawaChicken": { en: "Tawa Chicken", ur: "توا چکن" },
+  "gallery.cat.rice": { en: "Rice", ur: "چاول" },
+  "gallery.cat.bbq": { en: "BBQ", ur: "بی بی کیو" },
+  "gallery.cat.tandoor": { en: "Tandoor", ur: "تندور" },
+  "gallery.cat.handi": { en: "Handi", ur: "ہانڈی" },
+  "gallery.cat.desserts": { en: "Desserts", ur: "میٹھے" },
+  "gallery.cat.tawa": { en: "Tawa Special", ur: "توا اسپیشل" },
   
-  // Events
-  "events.title": { en: "Special Events", ur: "خصوصی پروگرام" },
-  "events.subtitle": { en: "Join us for memorable occasions", ur: "یادگار مواقع کے لیے ہمارے ساتھ شامل ہوں" },
+  // Highlights
+  "highlights.title": { en: "The Sevva Experience", ur: "سیوا کا تجربہ" },
+  "highlights.subtitle": { en: "Why Choose Us", ur: "ہمیں کیوں منتخب کریں" },
+  "highlights.cuisine.title": { en: "Authentic Cuisine", ur: "مستند کھانے" },
+  "highlights.cuisine.desc": { en: "Traditional Pakistani & Turkish-inspired dishes prepared with desi ghee and premium ingredients", ur: "دیسی گھی اور اعلیٰ اجزاء سے تیار روایتی پاکستانی اور ترکی سے متاثر پکوان" },
+  "highlights.location.title": { en: "Prime Location", ur: "اہم مقام" },
+  "highlights.location.desc": { en: "Situated near Lake City, Raiwind Road — easily accessible with ample parking", ur: "لیک سٹی، رائے ونڈ روڈ کے قریب — آسان رسائی اور کافی پارکنگ" },
+  "highlights.hours.title": { en: "Open Daily", ur: "روزانہ کھلا" },
+  "highlights.hours.desc": { en: "Monday through Sunday, 12:00 PM to Midnight — perfect for lunch, dinner, or late-night dining", ur: "پیر سے اتوار، دوپہر 12 بجے سے آدھی رات تک — لنچ، ڈنر یا رات کے کھانے کے لیے بہترین" },
+  "highlights.ambiance.title": { en: "Premium Ambience", ur: "اعلیٰ ماحول" },
+  "highlights.ambiance.desc": { en: "Elegant family-friendly atmosphere ideal for celebrations, gatherings, and memorable evenings", ur: "تقریبات، اجتماعات اور یادگار شاموں کے لیے خوبصورت خاندانی ماحول" },
+  
+  // Testimonials
+  "testimonials.title": { en: "What Our Guests Say", ur: "ہمارے مہمان کیا کہتے ہیں" },
+  "testimonials.subtitle": { en: "Guest Reviews", ur: "مہمانوں کے جائزے" },
+  "testimonials.rating": { en: "4.8 out of 5 based on guest reviews", ur: "مہمانوں کے جائزوں کی بنیاد پر 5 میں سے 4.8" },
+  "testimonials.1.name": { en: "Ahmed Khan", ur: "احمد خان" },
+  "testimonials.1.text": { en: "The best karahi in Lahore! The ambience is perfect for family dinners. Highly recommend the Nawabi Butter Handi.", ur: "لاہور کی بہترین کڑاہی! ماحول خاندانی کھانوں کے لیے بہترین ہے۔ نوابی بٹر ہانڈی کی سفارش کرتا ہوں۔" },
+  "testimonials.2.name": { en: "Fatima Malik", ur: "فاطمہ ملک" },
+  "testimonials.2.text": { en: "Absolutely stunning restaurant. The Sunday brunch buffet is incredible — over 50 items and everything was delicious.", ur: "بالکل شاندار ریستوراں۔ اتوار کا برنچ بوفے لاجواب ہے — 50 سے زیادہ اشیاء اور سب کچھ لذیذ تھا۔" },
+  "testimonials.3.name": { en: "Hassan Ali", ur: "حسن علی" },
+  "testimonials.3.text": { en: "Celebrated my anniversary here. The staff was attentive, the food was exceptional, and the private seating was wonderful.", ur: "یہاں اپنی سالگرہ منائی۔ عملہ توجہ دینے والا تھا، کھانا غیر معمولی تھا، اور پرائیویٹ بیٹھک شاندار تھی۔" },
   
   // CTA
-  "cta.title": { en: "Ready for an Unforgettable Evening?", ur: "ایک ناقابل فراموش شام کے لیے تیار ہیں؟" },
-  "cta.subtitle": { en: "Book your table now and experience the finest Pakistani cuisine.", ur: "ابھی اپنا ٹیبل بک کریں اور بہترین پاکستانی کھانوں کا تجربہ کریں۔" },
-  
-  // Voice AI
-  "voice.title": { en: "Book by Voice", ur: "آواز سے بکنگ" },
-  "voice.subtitle": { en: "Talk to our AI assistant", ur: "ہمارے AI اسسٹنٹ سے بات کریں" },
-  "voice.start": { en: "Start Voice Booking", ur: "آواز سے بکنگ شروع کریں" },
-  "voice.stop": { en: "End Conversation", ur: "گفتگو ختم کریں" },
+  "cta.reserve": { en: "Reserve Your Table", ur: "اپنا ٹیبل محفوظ کریں" },
+  "cta.title": { en: "Ready to Experience", ur: "تجربہ کرنے کے لیے تیار ہیں" },
+  "cta.subtitle": { en: "Whether it's a family gathering, business dinner, or a romantic evening, we're ready to make your visit unforgettable.", ur: "چاہے خاندانی اجتماع ہو، کاروباری ڈنر ہو، یا رومانٹک شام، ہم آپ کی ملاقات کو یادگار بنانے کے لیے تیار ہیں۔" },
+  "cta.button": { en: "Book Your Table", ur: "اپنا ٹیبل بک کریں" },
   
   // Footer
-  "footer.tagline": { en: "Experience the art of authentic Pakistani cuisine in an elegant setting.", ur: "ایک شاندار ماحول میں مستند پاکستانی کھانوں کے فن کا تجربہ کریں۔" },
+  "footer.tagline": { en: "Experience the art of fine Pakistani cuisine in an atmosphere of warmth and elegance.", ur: "گرمجوشی اور شائستگی کے ماحول میں عمدہ پاکستانی کھانوں کے فن کا تجربہ کریں۔" },
   "footer.quickLinks": { en: "Quick Links", ur: "فوری لنکس" },
-  "footer.hours": { en: "Hours", ur: "اوقات" },
-  "footer.daily": { en: "Daily", ur: "روزانہ" },
+  "footer.hours": { en: "Opening Hours", ur: "کھلنے کے اوقات" },
+  "footer.daily": { en: "Monday – Sunday", ur: "پیر – اتوار" },
   "footer.rights": { en: "All rights reserved.", ur: "جملہ حقوق محفوظ ہیں۔" },
+  "footer.contact": { en: "Contact Us", ur: "ہم سے رابطہ کریں" },
+  "footer.address": { en: "Adda Plot Roundabout, Raiwind Road, near Lake City, Lahore", ur: "ڈیا پلاٹ راؤنڈ اباؤٹ، رائے ونڈ روڈ، لیک سٹی کے قریب، لاہور" },
 };
 
 interface LanguageContextType {

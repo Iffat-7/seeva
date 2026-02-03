@@ -4,34 +4,34 @@ import { cn } from "@/lib/utils";
 
 const galleryImages = [
   {
-    src: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=600&q=80",
-    alt: "Sizzling Tawa Chicken",
-    category: "Tawa Special",
-  },
-  {
     src: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600&q=80",
-    alt: "Aromatic Biryani",
-    category: "Rice",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&q=80",
-    alt: "Fresh Naan Bread",
-    category: "Tandoor",
+    altKey: "gallery.biryani",
+    categoryKey: "gallery.cat.rice",
   },
   {
     src: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&q=80",
-    alt: "Seekh Kabab",
-    category: "BBQ",
+    altKey: "gallery.seekhKabab",
+    categoryKey: "gallery.cat.bbq",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&q=80",
+    altKey: "gallery.naan",
+    categoryKey: "gallery.cat.tandoor",
   },
   {
     src: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=80",
-    alt: "Creamy Handi",
-    category: "Handi",
+    altKey: "gallery.handi",
+    categoryKey: "gallery.cat.handi",
   },
   {
-    src: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80",
-    alt: "Gulab Jamun",
-    category: "Desserts",
+    src: "https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=600&q=80",
+    altKey: "gallery.gulabJamun",
+    categoryKey: "gallery.cat.desserts",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1610057099431-d73a1c9d2f2f?w=600&q=80",
+    altKey: "gallery.tawaChicken",
+    categoryKey: "gallery.cat.tawa",
   },
 ];
 
@@ -68,7 +68,7 @@ export function GallerySection() {
             >
               <img
                 src={image.src}
-                alt={image.alt}
+                alt={t(image.altKey)}
                 className={cn(
                   "w-full h-full object-cover transition-all duration-700",
                   hoveredIndex === index ? "scale-110" : "scale-100"
@@ -94,9 +94,9 @@ export function GallerySection() {
                 </div>
                 
                 <p className="text-primary text-xs uppercase tracking-wider mb-1">
-                  {image.category}
+                  {t(image.categoryKey)}
                 </p>
-                <p className="text-foreground font-serif text-lg">{image.alt}</p>
+                <p className="text-foreground font-serif text-lg">{t(image.altKey)}</p>
               </div>
             </div>
           ))}
