@@ -93,16 +93,56 @@ const Reservations = () => {
 
     setIsLoading(true);
 
+    const reservationId = generateReservationId();
+    const now = new Date().toISOString();
+    
+    // Generate time slot key (e.g., "2026-02-06_16:30")
+    const timeSlotKey = formData.date && formData.time 
+      ? `${format(formData.date, "yyyy-MM-dd")}_${formData.time.replace(/\s/g, '').replace('PM', '').replace('AM', '')}`
+      : "";
+
     const payload = {
-      action: formData.action,
+      // Core identification
+      reservation_id: reservationId,
       customer_name: formData.customerName,
       phone: formData.phone,
-      email: formData.email || "",
-      date: formData.date ? format(formData.date, "yyyy-MM-dd") : "",
-      time: formData.time,
-      guests: formData.guests,
-      preferences: formData.preferences || "",
-      notes: formData.notes || "",
+      email: formData.email || null,
+      
+      // Reservation details
+      reservation_date: formData.date ? format(formData.date, "yyyy-MM-dd") : "",
+      reservation_time: formData.time,
+      guest_count: formData.guests,
+      seating_preference: formData.preferences || "no_preference",
+      special_requests: formData.notes || null,
+      
+      // Status and tracking
+      status: "pending",
+      action_source: "website_form",
+      reservation_type: "standard",
+      time_slot_key: timeSlotKey,
+      
+      // Capacity and assignment (to be filled by backend)
+      capacity_used: parseInt(formData.guests) || 1,
+      table_assigned: null,
+      
+      // Confirmation tracking
+      confirmation_sent: false,
+      confirmation_channel: null,
+      handled_by: null,
+      
+      // Change tracking
+      change_reason: formData.action === "update" ? "customer_request" : formData.action === "delete" ? "customer_cancellation" : null,
+      
+      // Timestamps
+      created_at: now,
+      last_updated: now,
+      
+      // Internal notes
+      customer_notes_internal: null,
+      booking_confidence: "high",
+      
+      // Action type for workflow
+      action: formData.action,
     };
 
     try {
@@ -119,7 +159,6 @@ const Reservations = () => {
       console.log("Edge function response:", data);
       
        // Generate reservation details for the card
-       const reservationId = generateReservationId();
        setReservationDetails({
          id: reservationId,
          customerName: formData.customerName,
