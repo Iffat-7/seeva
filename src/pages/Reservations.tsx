@@ -13,6 +13,8 @@ import { CalendarIcon, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+ import { ReservationCard } from "@/components/reservations/ReservationCard";
+ import { useLanguage } from "@/contexts/LanguageContext";
 
 type ActionType = "create" | "update" | "delete";
 
@@ -27,6 +29,21 @@ interface FormData {
   notes: string;
   action: ActionType;
 }
+ 
+ interface ReservationDetails {
+   id: string;
+   customerName: string;
+   date: string;
+   time: string;
+   guests: string;
+   preferences: string;
+ }
+ 
+ const generateReservationId = (): string => {
+   const timestamp = Date.now().toString(36).toUpperCase();
+   const random = Math.random().toString(36).substring(2, 6).toUpperCase();
+   return `SVA-${timestamp}-${random}`;
+ };
 
 const timeSlots = [
   "12:00 PM", "12:30 PM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM",
@@ -39,8 +56,10 @@ const guestOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"];
 
 const Reservations = () => {
   const { toast } = useToast();
+   const { language, t } = useLanguage();
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+   const [reservationDetails, setReservationDetails] = useState<ReservationDetails | null>(null);
   const [formData, setFormData] = useState<FormData>({
     customerName: "",
     phone: "",
@@ -56,6 +75,7 @@ const Reservations = () => {
   const handleInputChange = (field: keyof FormData, value: string | Date | undefined) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     setIsSuccess(false);
+     setReservationDetails(null);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -98,16 +118,31 @@ const Reservations = () => {
 
       console.log("Edge function response:", data);
       
+       // Generate reservation details for the card
+       const reservationId = generateReservationId();
+       setReservationDetails({
+         id: reservationId,
+         customerName: formData.customerName,
+         date: formData.date ? format(formData.date, "MMMM d, yyyy") : "",
+         time: formData.time,
+         guests: formData.guests,
+         preferences: formData.preferences,
+       });
+       
       setIsSuccess(true);
       toast({
-        title: "Request Received",
-        description: "Your booking request has been received. Our system is confirming availability.",
+        title: language === "ur" ? "درخواست موصول ہوئی" : "Request Received",
+        description: language === "ur" 
+          ? "آپ کی بکنگ کی درخواست موصول ہو گئی ہے۔" 
+          : "Your booking request has been received. Our system is confirming availability.",
       });
     } catch (error) {
       console.error("Error submitting reservation:", error);
       toast({
-        title: "Something went wrong",
-        description: "Please try again or contact us directly.",
+        title: language === "ur" ? "کچھ غلط ہو گیا" : "Something went wrong",
+        description: language === "ur" 
+          ? "براہ کرم دوبارہ کوشش کریں یا ہم سے براہ راست رابطہ کریں۔"
+          : "Please try again or contact us directly.",
         variant: "destructive",
       });
     } finally {
@@ -136,23 +171,58 @@ const Reservations = () => {
         <div className="container mx-auto px-4 md:px-6">
           {/* Header */}
           <div className="text-center mb-12">
-            <p className="text-primary text-sm uppercase tracking-widest mb-3">Reservations</p>
+            <p className="text-primary text-sm uppercase tracking-widest mb-3">
+              {language === "ur" ? "ریزرویشن" : "Reservations"}
+            </p>
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
-              Book Your Table
+              {language === "ur" ? "اپنی ٹیبل بک کریں" : "Book Your Table"}
             </h1>
             <div className="divider-gold mb-6" />
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Complete the form below to reserve your table at Sevva.
+              {language === "ur" 
+                ? "سیوا میں اپنی ٹیبل ریزرو کرنے کے لیے نیچے فارم مکمل کریں۔"
+                : "Complete the form below to reserve your table at Sevva."}
             </p>
           </div>
 
-          {/* Success State */}
-          {isSuccess && (
-            <div className="max-w-2xl mx-auto mb-8 p-6 rounded-lg bg-primary/10 border border-primary/30 flex items-start gap-4">
-              <CheckCircle className="text-primary shrink-0 mt-0.5" size={24} />
+          {/* Success State with Invitation Card */}
+          {isSuccess && reservationDetails && formData.action !== "delete" && (
+            <div className="max-w-md mx-auto mb-12">
+              <div className="text-center mb-6">
+                <CheckCircle className="text-primary mx-auto mb-3" size={48} />
+                <h2 className="font-serif text-2xl text-foreground mb-2">
+                  {language === "ur" ? "بکنگ کی درخواست موصول!" : "Booking Request Received!"}
+                </h2>
+                <p className="text-muted-foreground text-sm">
+                  {language === "ur" 
+                    ? "آپ کا دعوت نامہ تیار ہے۔ براہ کرم اسے ڈاؤن لوڈ کریں۔"
+                    : "Your invitation card is ready. Please download it for your records."}
+                </p>
+              </div>
+              <ReservationCard
+                reservationId={reservationDetails.id}
+                customerName={reservationDetails.customerName}
+                date={reservationDetails.date}
+                time={reservationDetails.time}
+                guests={reservationDetails.guests}
+                preferences={reservationDetails.preferences}
+              />
+            </div>
+          )}
+
+          {/* Delete Success State */}
+          {isSuccess && formData.action === "delete" && (
+            <div className="max-w-2xl mx-auto mb-8 p-6 rounded-lg bg-destructive/10 border border-destructive/30 flex items-start gap-4">
+              <CheckCircle className="text-destructive shrink-0 mt-0.5" size={24} />
               <div>
-                <h3 className="font-serif text-lg text-foreground mb-1">Your booking request has been received.</h3>
-                <p className="text-muted-foreground text-sm">Our system is confirming availability. You'll receive a confirmation shortly via phone or WhatsApp.</p>
+                <h3 className="font-serif text-lg text-foreground mb-1">
+                  {language === "ur" ? "ریزرویشن منسوخ کر دی گئی" : "Reservation Cancelled"}
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  {language === "ur" 
+                    ? "آپ کی منسوخی کی درخواست موصول ہو گئی ہے۔"
+                    : "Your cancellation request has been received."}
+                </p>
               </div>
             </div>
           )}
@@ -162,7 +232,9 @@ const Reservations = () => {
             <div className="bg-card rounded-lg border border-border p-6 md:p-8 space-y-8">
               {/* Action Type */}
               <div className="space-y-3">
-                <Label className="text-foreground font-serif text-lg">What would you like to do?</Label>
+                <Label className="text-foreground font-serif text-lg">
+                  {language === "ur" ? "آپ کیا کرنا چاہیں گے؟" : "What would you like to do?"}
+                </Label>
                 <RadioGroup
                   value={formData.action}
                   onValueChange={(value) => handleInputChange("action", value as ActionType)}
@@ -170,15 +242,21 @@ const Reservations = () => {
                 >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="create" id="create" />
-                    <Label htmlFor="create" className="cursor-pointer">New Reservation</Label>
+                    <Label htmlFor="create" className="cursor-pointer">
+                      {language === "ur" ? "نئی ریزرویشن" : "New Reservation"}
+                    </Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="update" id="update" />
-                    <Label htmlFor="update" className="cursor-pointer">Update Existing</Label>
+                    <Label htmlFor="update" className="cursor-pointer">
+                      {language === "ur" ? "موجودہ کو اپ ڈیٹ کریں" : "Update Existing"}
+                    </Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="delete" id="delete" />
-                    <Label htmlFor="delete" className="cursor-pointer">Cancel Reservation</Label>
+                    <Label htmlFor="delete" className="cursor-pointer">
+                      {language === "ur" ? "ریزرویشن منسوخ کریں" : "Cancel Reservation"}
+                    </Label>
                   </div>
                 </RadioGroup>
               </div>
@@ -187,16 +265,18 @@ const Reservations = () => {
 
               {/* Contact Information */}
               <div className="space-y-6">
-                <h2 className="font-serif text-xl text-foreground">Contact Information</h2>
+                <h2 className="font-serif text-xl text-foreground">
+                  {language === "ur" ? "رابطے کی معلومات" : "Contact Information"}
+                </h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="customerName">
-                      Full Name <span className="text-destructive">*</span>
+                      {language === "ur" ? "پورا نام" : "Full Name"} <span className="text-destructive">*</span>
                     </Label>
                     <Input
                       id="customerName"
-                      placeholder="Enter your full name"
+                      placeholder={language === "ur" ? "اپنا پورا نام درج کریں" : "Enter your full name"}
                       value={formData.customerName}
                       onChange={(e) => handleInputChange("customerName", e.target.value)}
                       required
@@ -205,7 +285,7 @@ const Reservations = () => {
                   
                   <div className="space-y-2">
                     <Label htmlFor="phone">
-                      Phone Number <span className="text-destructive">*</span>
+                      {language === "ur" ? "فون نمبر" : "Phone Number"} <span className="text-destructive">*</span>
                     </Label>
                     <Input
                       id="phone"
@@ -219,11 +299,13 @@ const Reservations = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email (Optional)</Label>
+                  <Label htmlFor="email">
+                    {language === "ur" ? "ای میل (اختیاری)" : "Email (Optional)"}
+                  </Label>
                   <Input
                     id="email"
                     type="email"
-                    placeholder="your@email.com"
+                    placeholder={language === "ur" ? "آپ کا ای میل" : "your@email.com"}
                     value={formData.email}
                     onChange={(e) => handleInputChange("email", e.target.value)}
                   />
@@ -234,13 +316,15 @@ const Reservations = () => {
 
               {/* Reservation Details */}
               <div className="space-y-6">
-                <h2 className="font-serif text-xl text-foreground">Reservation Details</h2>
+                <h2 className="font-serif text-xl text-foreground">
+                  {language === "ur" ? "ریزرویشن کی تفصیلات" : "Reservation Details"}
+                </h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Date */}
                   <div className="space-y-2">
                     <Label>
-                      Reservation Date <span className="text-destructive">*</span>
+                      {language === "ur" ? "ریزرویشن کی تاریخ" : "Reservation Date"} <span className="text-destructive">*</span>
                     </Label>
                     <Popover>
                       <PopoverTrigger asChild>
@@ -252,7 +336,7 @@ const Reservations = () => {
                           )}
                         >
                           <CalendarIcon className="mr-2 h-4 w-4" />
-                          {formData.date ? format(formData.date, "PPP") : "Select date"}
+                          {formData.date ? format(formData.date, "PPP") : (language === "ur" ? "تاریخ منتخب کریں" : "Select date")}
                         </Button>
                       </PopoverTrigger>
                       <PopoverContent className="w-auto p-0" align="start">
@@ -271,14 +355,14 @@ const Reservations = () => {
                   {/* Time */}
                   <div className="space-y-2">
                     <Label>
-                      Reservation Time <span className="text-destructive">*</span>
+                      {language === "ur" ? "ریزرویشن کا وقت" : "Reservation Time"} <span className="text-destructive">*</span>
                     </Label>
                     <Select
                       value={formData.time}
                       onValueChange={(value) => handleInputChange("time", value)}
                     >
                       <SelectTrigger>
-                        <SelectValue placeholder="Select time" />
+                        <SelectValue placeholder={language === "ur" ? "وقت منتخب کریں" : "Select time"} />
                       </SelectTrigger>
                       <SelectContent>
                         {timeSlots.map((time) => (
@@ -295,19 +379,19 @@ const Reservations = () => {
                   {/* Guests */}
                   <div className="space-y-2">
                     <Label>
-                      Number of Guests <span className="text-destructive">*</span>
+                      {language === "ur" ? "مہمانوں کی تعداد" : "Number of Guests"} <span className="text-destructive">*</span>
                     </Label>
                     <Select
                       value={formData.guests}
                       onValueChange={(value) => handleInputChange("guests", value)}
                     >
                       <SelectTrigger>
-                        <SelectValue placeholder="Select guests" />
+                        <SelectValue placeholder={language === "ur" ? "مہمان منتخب کریں" : "Select guests"} />
                       </SelectTrigger>
                       <SelectContent>
                         {guestOptions.map((num) => (
                           <SelectItem key={num} value={num}>
-                            {num} {num === "1" ? "Guest" : "Guests"}
+                            {num} {num === "1" ? (language === "ur" ? "مہمان" : "Guest") : (language === "ur" ? "مہمان" : "Guests")}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -316,18 +400,20 @@ const Reservations = () => {
 
                   {/* Seating Preference */}
                   <div className="space-y-2">
-                    <Label>Seating Preference (Optional)</Label>
+                    <Label>
+                      {language === "ur" ? "نشست کی ترجیح (اختیاری)" : "Seating Preference (Optional)"}
+                    </Label>
                     <Select
                       value={formData.preferences}
                       onValueChange={(value) => handleInputChange("preferences", value)}
                     >
                       <SelectTrigger>
-                        <SelectValue placeholder="No preference" />
+                        <SelectValue placeholder={language === "ur" ? "کوئی ترجیح نہیں" : "No preference"} />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="indoor">Indoor</SelectItem>
-                        <SelectItem value="outdoor">Outdoor</SelectItem>
-                        <SelectItem value="private">Private</SelectItem>
+                        <SelectItem value="indoor">{language === "ur" ? "اندر" : "Indoor"}</SelectItem>
+                        <SelectItem value="outdoor">{language === "ur" ? "باہر" : "Outdoor"}</SelectItem>
+                        <SelectItem value="private">{language === "ur" ? "نجی" : "Private"}</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -335,10 +421,14 @@ const Reservations = () => {
 
                 {/* Special Requests */}
                 <div className="space-y-2">
-                  <Label htmlFor="notes">Special Requests (Optional)</Label>
+                  <Label htmlFor="notes">
+                    {language === "ur" ? "خصوصی درخواستیں (اختیاری)" : "Special Requests (Optional)"}
+                  </Label>
                   <Textarea
                     id="notes"
-                    placeholder="Any dietary requirements, celebrations, or special requests..."
+                    placeholder={language === "ur" 
+                      ? "کوئی خوراکی ضروریات، تقریبات، یا خصوصی درخواستیں..."
+                      : "Any dietary requirements, celebrations, or special requests..."}
                     value={formData.notes}
                     onChange={(e) => handleInputChange("notes", e.target.value)}
                     rows={3}
@@ -357,10 +447,14 @@ const Reservations = () => {
                 {isLoading ? (
                   <>
                     <Loader2 className="animate-spin" size={20} />
-                    Processing...
+                    {language === "ur" ? "پروسیسنگ..." : "Processing..."}
                   </>
                 ) : (
-                  getButtonText()
+                  formData.action === "create" 
+                    ? (language === "ur" ? "ریزرویشن کی تصدیق کریں" : "Confirm Reservation")
+                    : formData.action === "update"
+                    ? (language === "ur" ? "ریزرویشن اپ ڈیٹ کریں" : "Update Reservation")
+                    : (language === "ur" ? "ریزرویشن منسوخ کریں" : "Cancel Reservation")
                 )}
               </Button>
 
@@ -368,7 +462,9 @@ const Reservations = () => {
               <div className="flex items-start gap-3 p-4 rounded-md bg-muted/50 text-sm">
                 <AlertCircle className="text-muted-foreground shrink-0 mt-0.5" size={16} />
                 <p className="text-muted-foreground">
-                  This form submits a reservation request. Final confirmation will be provided by our team via phone or WhatsApp.
+                  {language === "ur" 
+                    ? "یہ فارم ریزرویشن کی درخواست جمع کراتا ہے۔ حتمی تصدیق ہماری ٹیم فون یا واٹس ایپ کے ذریعے فراہم کرے گی۔"
+                    : "This form submits a reservation request. Final confirmation will be provided by our team via phone or WhatsApp."}
                 </p>
               </div>
             </div>
