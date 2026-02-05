@@ -5,7 +5,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
 };
 
-const ZAPIER_WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/25980709/uli4h5l/";
+const ZAPIER_WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/25980709/ulgqyo4/";
 
 serve(async (req) => {
   // Handle CORS preflight requests
