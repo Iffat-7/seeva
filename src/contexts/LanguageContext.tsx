@@ -29,18 +29,9 @@ export const translations: Translations = {
   // Gallery
   "gallery.title": { en: "Culinary Artistry", ur: "پکوانوں کا فن" },
   "gallery.subtitle": { en: "A Visual Journey", ur: "ایک بصری سفر" },
-  "gallery.biryani": { en: "Aromatic Biryani", ur: "خوشبودار بریانی" },
-  "gallery.seekhKabab": { en: "Seekh Kabab", ur: "سیخ کباب" },
-  "gallery.naan": { en: "Fresh Naan Bread", ur: "تازہ نان" },
-  "gallery.handi": { en: "Creamy Handi", ur: "کریمی ہانڈی" },
-  "gallery.gulabJamun": { en: "Gulab Jamun", ur: "گلاب جامن" },
-  "gallery.tawaChicken": { en: "Tawa Chicken", ur: "توا چکن" },
-  "gallery.cat.rice": { en: "Rice", ur: "چاول" },
-  "gallery.cat.bbq": { en: "BBQ", ur: "بی بی کیو" },
-  "gallery.cat.tandoor": { en: "Tandoor", ur: "تندور" },
-  "gallery.cat.handi": { en: "Handi", ur: "ہانڈی" },
-  "gallery.cat.desserts": { en: "Desserts", ur: "میٹھے" },
-  "gallery.cat.tawa": { en: "Tawa Special", ur: "توا اسپیشل" },
+  "gallery.feastTitle": { en: "A Traditional Pakistani Feast", ur: "روایتی پاکستانی دعوت" },
+  "gallery.feastAlt": { en: "Elegant dining table with traditional Pakistani dishes including biryani, seekh kabab, handi, naan, and desserts", ur: "بریانی، سیخ کباب، ہانڈی، نان، اور میٹھے سمیت روایتی پاکستانی پکوانوں کے ساتھ خوبصورت کھانے کی میز" },
+  "gallery.cat.feast": { en: "The Complete Experience", ur: "مکمل تجربہ" },
   
   // Highlights
   "highlights.title": { en: "The Sevva Experience", ur: "سیوا کا تجربہ" },
