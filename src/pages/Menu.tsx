@@ -167,30 +167,107 @@ const Menu = () => {
             ))}
           </div>
 
-          {/* Buffet Info */}
-          <div className="mt-16 max-w-3xl mx-auto">
-            <div className="bg-muted/30 rounded-lg border border-border p-8 text-center">
-              <h2 className="font-serif text-2xl text-foreground mb-4">Special Offerings</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                <div className="space-y-2">
-                  <h3 className="text-primary font-serif text-lg">Hi-Tea Buffet</h3>
-                  <p className="text-muted-foreground text-sm">
-                    50+ items including snacks, main dishes, live counters & desserts
-                  </p>
-                  <p className="text-foreground">~PKR 2,000 + tax</p>
+          {/* Ramadan Buffet Section */}
+          <div className="mt-16 max-w-6xl mx-auto space-y-10">
+            {/* Iftar Dinner Buffet */}
+            <div className="bg-muted/30 rounded-lg border border-border p-6 md:p-8">
+              <div className="text-center mb-8">
+                <h2 className="font-serif text-2xl md:text-3xl text-gradient-gold mb-2">🍽️ Iftar Dinner Buffet</h2>
+                <p className="text-primary font-semibold text-lg">PKR 3,495/- Per Head + Tax</p>
+                <p className="text-muted-foreground text-sm">Timing: From Maghreb for two hours</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="space-y-3">
+                  <h3 className="text-primary font-serif text-lg border-b border-border pb-2">Starter & Salads</h3>
+                  <div className="space-y-1 text-sm">
+                    <p className="text-muted-foreground font-medium">Drinks:</p>
+                    <p className="text-foreground">Rooh Afza, Lemon Water</p>
+                    <p className="text-muted-foreground font-medium mt-2">Traditional:</p>
+                    <p className="text-foreground">Creamy Khajoor, Papri Chaat, Dahi Bhally, Fruit Chaat</p>
+                    <p className="text-muted-foreground font-medium mt-2">Salads:</p>
+                    <p className="text-foreground">Apple Cabbage, Fresh Chopped Salad, Noodle Salad</p>
+                    <p className="text-muted-foreground font-medium mt-2">Fried/Savory:</p>
+                    <p className="text-foreground">Vegetable Pakora, Chicken Samosa, Lahori Aloo Tikky, Chicken Patties, Chicken Veg Samosa, Chicken Cold Sandwich</p>
+                  </div>
                 </div>
-                <div className="space-y-2">
-                  <h3 className="text-primary font-serif text-lg">Sunday Premium Brunch</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Wider menu selection, special Sunday offering
-                  </p>
-                  <p className="text-foreground">~PKR 1,800 + tax</p>
+                <div className="space-y-3">
+                  <h3 className="text-primary font-serif text-lg border-b border-border pb-2">Main Courses</h3>
+                  <div className="space-y-1 text-sm">
+                    <p className="text-muted-foreground font-medium">Main Entry:</p>
+                    <p className="text-foreground">Mutton Daigi Qorma, Shehzadi Raan Qeema, Mutton Yakhni Pulao, Mutton Palak Gosht, Mutton Kabab (BBQ), Murgh Madrasi</p>
+                    <p className="text-muted-foreground font-medium mt-2">BBQ Section:</p>
+                    <p className="text-foreground">Chicken Cheese Boti, Chicken Tandoori Boti, Chicken Tikka Boti, Chicken Gola Kabab, Chicken Reshmi Boti, Chicken Irani Boti</p>
+                    <p className="text-muted-foreground font-medium mt-2">PAN-Asian:</p>
+                    <p className="text-foreground">Dhaka Chicken, French Fries, Honey Wings, Chicken Manchurian, Chicken Chowmein, Egg Fried Rice, Penny Pasta</p>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-primary font-serif text-lg border-b border-border pb-2">Platters & Tandoor</h3>
+                  <div className="space-y-1 text-sm">
+                    <p className="text-muted-foreground font-medium">Platters:</p>
+                    <p className="text-foreground">Turkish Platter, Arabic Platter</p>
+                    <p className="text-muted-foreground font-medium mt-2">Tandoor:</p>
+                    <p className="text-foreground">Roghni Naan, Kalwanji Naan, Garlic Naan, Pizza Plain Naan, Hara Spicy Naan</p>
+                    <p className="text-muted-foreground font-medium mt-2">Dressings:</p>
+                    <p className="text-foreground">Dynamite, Garlic, Mayo, Salsa, Mango Chutni, Aloo Bukhara, Imli, Khubani, Ranch</p>
+                  </div>
                 </div>
               </div>
-              <p className="text-muted-foreground text-xs mt-6">
-                * Prices are approximate and subject to change. Please confirm when booking.
-              </p>
             </div>
+
+            {/* Suhoor Buffet */}
+            <div className="bg-muted/30 rounded-lg border border-border p-6 md:p-8">
+              <div className="text-center mb-8">
+                <h2 className="font-serif text-2xl md:text-3xl text-gradient-gold mb-2">🌙 Suhoor (Sehri) Buffet</h2>
+                <p className="text-primary font-semibold text-lg">PKR 2,495/- Per Head + Tax</p>
+                <p className="text-muted-foreground text-sm">Slot One: 1:00 AM – 2:45 AM &nbsp;|&nbsp; Slot Two: 3:15 AM – End of Suhoor</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="space-y-3">
+                  <h3 className="text-primary font-serif text-lg border-b border-border pb-2">Appetizers & Main Course</h3>
+                  <div className="space-y-1 text-sm">
+                    <p className="text-muted-foreground font-medium">Welcome Drink:</p>
+                    <p className="text-foreground">Sweet Lassi</p>
+                    <p className="text-muted-foreground font-medium mt-2">Appetizers:</p>
+                    <p className="text-foreground">Chicken Cold Sandwich, Chicken Patties, Shami Burger, Dhaka Chicken</p>
+                    <p className="text-muted-foreground font-medium mt-2">Main Course:</p>
+                    <p className="text-foreground">Mutton Paye, Desi Murg Shorba, Shehzadi Raan Qeema, Chicken Haleem, Chicken Palak, Tarka Daal, Chicken Kabab Masala, Lahori Chanay</p>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-primary font-serif text-lg border-b border-border pb-2">Live Stations</h3>
+                  <div className="space-y-1 text-sm">
+                    <p className="text-muted-foreground font-medium">Egg Station:</p>
+                    <p className="text-foreground">French Toast, Aloo Anda Bhujia, Cheese Omelette, Half Fry</p>
+                    <p className="text-muted-foreground font-medium mt-2">Puri Station:</p>
+                    <p className="text-foreground">Puri, Pathory, Suji Halwa</p>
+                    <p className="text-muted-foreground font-medium mt-2">Naan/Roti:</p>
+                    <p className="text-foreground">Roghni, Kalwanji, Garlic, Plain, Khameeri, Hara Spicy, Podina Paratha</p>
+                    <p className="text-muted-foreground font-medium mt-2">BBQ/Continental/Rice:</p>
+                    <p className="text-foreground">Tandoori Boti, Chicken Tikka, Chicken Gola Kabab, Penny Pasta, Chicken Biryani</p>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-primary font-serif text-lg border-b border-border pb-2">🍰 Desserts & Beverages</h3>
+                  <div className="space-y-1 text-sm">
+                    <p className="text-muted-foreground font-medium">Sweets:</p>
+                    <p className="text-foreground">Shahi Kheer, Gulab Jamun, Shahi Tukra, Basboussa, Burfi, Rasgulla</p>
+                    <p className="text-muted-foreground font-medium mt-2">Cakes/Pastries:</p>
+                    <p className="text-foreground">Short Pasta, Mousse, Eclairs, Tea Cake, Three Milk Cake</p>
+                    <p className="text-muted-foreground font-medium mt-2">Puddings/Jelly:</p>
+                    <p className="text-foreground">Custard, Jelly, Pudding, Panna Cotta, Hot Egg Pudding</p>
+                    <p className="text-muted-foreground font-medium mt-2">Special:</p>
+                    <p className="text-foreground">Chocolate Fountain</p>
+                    <p className="text-muted-foreground font-medium mt-2">Hot Beverages:</p>
+                    <p className="text-foreground">Green Tea, Karak Tea, Cafe Latte</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-muted-foreground text-xs text-center">
+              * Prices are subject to change. Please confirm when booking. Reservations: 0315 1773177
+            </p>
           </div>
         </div>
       </section>

@@ -91,6 +91,45 @@ const SEVVA_KNOWLEDGE_BASE = `You are Sevva, the AI assistant for Sevva Restaura
 - Sevva's Mutton Joints (2 joints) – PKR 2,995
 - Sevva Kuna Pot – PKR 2,995
 
+## 🍽️ Iftar Dinner Buffet
+- **Price**: PKR 3,495/- Per Head + Tax
+- **Timing**: From Maghreb for two hours
+
+### Starter & Salads
+- Drinks: Rooh Afza, Lemon Water
+- Traditional: Creamy Khajoor, Papri Chaat, Dahi Bhally, Fruit Chaat
+- Salads: Apple Cabbage, Fresh Chopped Salad, Noodle Salad
+- Fried/Savory: Vegetable Pakora, Chicken Samosa, Lahori Aloo Tikky, Chicken Patties, Chicken Veg Samosa, Chicken Cold Sandwich
+
+### Main Courses (Iftar)
+- Main Entry: Mutton Daigi Qorma, Shehzadi Raan Qeema, Mutton Yakhni Pulao, Mutton Palak Gosht, Mutton Kabab (BBQ), Murgh Madrasi
+- BBQ Section: Chicken Cheese Boti, Chicken Tandoori Boti, Chicken Tikka Boti, Chicken Gola Kabab, Chicken Reshmi Boti, Chicken Irani Boti
+- PAN-Asian: Dhaka Chicken, French Fries, Honey Wings, Chicken Manchurian, Chicken Chowmein, Egg Fried Rice, Penny Pasta
+- Platters: Turkish Platter, Arabic Platter
+- Tandoor: Roghni Naan, Kalwanji Naan, Garlic Naan, Pizza Plain Naan, Hara Spicy Naan
+- Dressings: Dynamite, Garlic, Mayo, Salsa, various Chutni (Mango, Aloo Bukhara, Imli, Khubani), Ranch
+
+## 🌙 Suhoor (Sehri) Buffet
+- **Price**: PKR 2,495/- Per Head + Tax
+- **Slot One**: 1:00 AM – 2:45 AM
+- **Slot Two**: 3:15 AM – End of Suhoor
+
+### Menu Highlights (Suhoor)
+- Welcome Drink: Sweet Lassi
+- Appetizers: Chicken Cold Sandwich, Chicken Patties, Shami Burger, Dhaka Chicken
+- Main Course: Mutton Paye, Desi Murg Shorba, Shehzadi Raan Qeema, Chicken Haleem, Chicken Palak, Tarka Daal, Chicken Kabab Masala, Lahori Chanay
+- Egg Station: French Toast, Aloo Anda Bhujia, Cheese Omelette, Half Fry
+- Puri Station: Puri, Pathory, Suji Halwa
+- Naan/Roti: Roghni, Kalwanji, Garlic, Plain, Khameeri, Hara Spicy, Podina Paratha
+- BBQ/Continental/Rice: Tandoori Boti, Chicken Tikka, Chicken Gola Kabab, Penny Pasta, Chicken Biryani
+
+## 🍰 Desserts & Beverages (Common to both Iftar & Suhoor buffets)
+- Sweets: Shahi Kheer, Gulab Jamun, Shahi Tukra, Basboussa, Burfi, Rasgulla
+- Cakes/Pastries: Short Pasta, Mousse, Eclairs, Tea Cake, Three Milk Cake
+- Puddings/Jelly: Custard, Jelly, Pudding, Panna Cotta, Hot Egg Pudding
+- Special: Chocolate Fountain
+- Hot Beverages: Green Tea, Karak Tea, Cafe Latte
+
 ## Reservation Information
 - Reservations can be made through the website at /reservations
 - For immediate assistance, call or WhatsApp: 0315 1773177
